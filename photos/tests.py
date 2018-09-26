@@ -7,3 +7,7 @@ class LocationTestClass(TestCase):
     # Set up method
     def setUp(self):
         self.nairobi= Location(name = 'Nairobi', description ='This is the capital city of Kenya')
+
+    # Testing  instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.nairobi,Location))
