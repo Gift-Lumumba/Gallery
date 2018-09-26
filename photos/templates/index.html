@@ -1,16 +1,91 @@
 {% extends 'base.html'%}
-
 {% block content%}
-<h1 class="jumbotron" style="text-align:center">Welcome To Gallery</h1>
+<div class="search">
+    <div class="contents">
+        <div class="container image">
+            <h2 id="title">Welcome To Gallery</h2>
+            <form class="form" role="search" action="">
 
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder=" Search Image by category" name="image_category">&nbsp;&nbsp;   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button">Search</button>
+                  <br>
+                 </div>
+
+              </form>
+        </div>
+    </div>
+</div>
 
 <style>
-    @import url('https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps');
+  @import url('https://fonts.googleapis.com/css?family=Nunito|Oleo+Script+Swash+Caps');
 
-    .jumbotron{
-      font-family: 'Oleo Script Swash Caps', cursive;
-      background: url()
+   .search{
+    background: url(/static/photos/cam.jpeg) no-repeat 0px 0px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    -moz-background-size: cover;
+    height: 400px;
 
     }
+    .searchh{
+      color: whitesmoke;
+    }
+
+    ::placeholder{
+      font-family: 'Nunito', sans-serif;
+      font-size: 21px;
+    }
+    #button{
+      font-family: 'Nunito', sans-serif;
+    }
+
+    #title{
+      font-family: 'Nunito', sans-serif;
+      font-size: 60px;
+    }
+ /*--Banner--*/
+div.container.image{
+    padding: 6em 0 0;
+}
+div.container.imageloc{
+    padding: 4em 0 0;
+}
+.search h2{
+    padding-bottom: 20px;
+}
+.search-1 h2{
+    color: #c3c3c3;
+    text-align: center;
+    padding-top: 40px;
+}
+.contents{
+    min-height: 450px;
+    width: inherit;
+}
+.contents-1{
+    min-height: inherit;
+    width: inherit;
+    background: rgba(0,0,0,0.8)
+}
+.search h2 {
+    font-size:2.5em;
+    font-weight: 600;
+    color: #fff;
+}
+.search {
+    text-align: center;
+}
+.search p {
+    font-size: 1.2em;
+    color: rgba(255, 255, 255, 0.46);
+    font-weight: 400;
+    margin: 5em auto 1em;
+    width: 50%;
+}
 </style>
 {% endblock %}
