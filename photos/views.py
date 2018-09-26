@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse,Http404
 
 # Create your views here.
-def welcome(request):
+def index(request):
   """
   View function that renders the index page
   """
-  return HttpResponse('Welcome to Gallery')
+  return render(request,'index.html')
