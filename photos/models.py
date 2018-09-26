@@ -8,12 +8,18 @@ class Location(models.Model):
   def __str__(self):
       return self.name
 
+  def save_location(self):
+    self.save()
+
 class Category(models.Model):
   name = models.CharField(max_length = 30)
   description = models.TextField()
 
   def __str__(self):
       return self.name
+
+  def save_category(self):
+    self.save()
 
 class Image(models.Model): 
   name = models.CharField(max_length = 30)
@@ -24,3 +30,6 @@ class Image(models.Model):
 
   def __str__(self):
       return self.name
+  def save_image(self):
+    self.save()
+  
