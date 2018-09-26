@@ -11,3 +11,26 @@ class LocationTestClass(TestCase):
     # Testing  instance
     def test_instance(self):
         self.assertTrue(isinstance(self.nairobi,Location))
+
+    # Testing Save Method
+    def test_save_method(self):
+        self.nairobi.save_location()
+        locations = Location.objects.all()
+        self.assertTrue(len(locations) > 0)
+
+class CategoryTestClass(TestCase):
+  
+    # Set up method
+    def setUp(self):
+        self.nature= Category(name = 'Nature', description ='This is a test for Category class')
+
+    # Testing  instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.nature,Category))
+
+    # Testing Save Method
+    def test_save_method(self):
+        self.nature.save_category()
+        categories = Category.objects.all()
+        self.assertTrue(len(categories) > 0)
+
