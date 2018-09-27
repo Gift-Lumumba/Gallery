@@ -1,12 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse,Http404
+from .models import Image
 
 # Create your views here.
 def index(request):
   """
   View function that renders the index page
   """
-  return render(request,'index.html')
+  photos = Image.get_all_images()
+  return render(request,'index.html',{"photos":photos})
+
+def image(request,image_id):
+    """
+    View function that gets the images and displays them on the template.
+    """
+    image = Image.get_image(image_id)
+    return render(request,'index.html',{"image":image})
 
 def search_results(request):
   
