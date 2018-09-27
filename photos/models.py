@@ -1,35 +1,65 @@
 from django.db import models
+import datetime as dt
 
-# Create your models here.
-class Location(models.Model):
-  name = models.CharField(max_length = 30)
-  description = models.TextField()
 
-  def __str__(self):
-      return self.name
-
-  def save_location(self):
-    self.save()
 
 class Category(models.Model):
-  name = models.CharField(max_length = 30)
-  description = models.TextField()
+    name = models.CharField(max_length=50)
 
-  def __str__(self):
-      return self.name
+    def __str__(self):
+        return self.name
 
-  def save_category(self):
-    self.save()
+    def save_category(self):
+        self.save()
 
-class Image(models.Model): 
-  name = models.CharField(max_length = 30)
-  image = models.ImageField(upload_to = 'images/')
-  description = models.TextField()
-  location = models.ForeignKey(Location)
-  category = models.ForeignKey(Category)
+    def delete_category(self):
+        self.delete()
 
-  def __str__(self):
-      return self.name
-  def save_image(self):
-    self.save()
-  
+class Location(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+    def save_location(self):
+        self.save()
+
+    def delete_location(self):
+        self.delete()
+
+# Create your models here.
+class Image(models.Model):
+    image = models.ImageField(upload_to='images/')
+    name = models.CharField(max_length=40)
+    description = models.TextField()
+    category = models.ForeignKey(Category)
+    location = models.ForeignKey(Location)
+
+    def __str__(self):
+        return self.name
+
+    def save_image(self):
+        self.save()
+
+    def delete_image(self):
+        self.delete()
+
+    @classmethod
+    def get_image_by_id(cls, id):
+        images = cls.objects.get(id=id)
+        return images
+
+    @classmethod
+    def filter_by_category(cls, category):
+        images = cls.objects.filter(category=category)
+        return images
+
+    @classmethod
+    def filter_by_location(cls, location):
+        images = cls.objects.filter(location=location)
+        return images
+
+    @classmethod
+    def search_image(cls, category):
+        images = cls.objects.filter(category__icontains=category)
+        return images
