@@ -1,10 +1,12 @@
 {% extends 'base.html'%}
 {% block content%}
+<br>
+<br>
 <div class="search">
     <div class="contents">
         <div class="container image">
-            <h2 id="title">Welcome To Gallery</h2>
-            <form class="form" role="search" action="">
+            <h2 id="title"><b>Welcome To Gallery</b></h2>
+            <form class="form" role="search" action="{% url 'search_results' %}">
 
                 <div class="input-group">
                   <input type="text" class="form-control" placeholder=" Search Image by category" name="image_category">&nbsp;&nbsp;   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button">Search</button>
@@ -15,20 +17,63 @@
         </div>
     </div>
 </div>
+<body>
+    <div class="container">
+        <br>
+          <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 box">
+                  <div class="card paris" style="width: 30rem;">
+                    
+                    </div>
+              </div>
+              
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="card newyork" style="width: 30rem;">
+              
+                    </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="card mombasa" style="width: 30rem;">
+                      </div>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <div class="card nairobi" style="width: 30rem;">
+        
+                      </div>
+                </div>
+              </div>
+              <br>
+               <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="card" style="width: 30rem;">
+            
+                    </div>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <div class="card" style="width: 30rem;">
+          
+                    </div>
+              </div>
+            </div>
+      </div>
+</body>
 
 <style>
   @import url('https://fonts.googleapis.com/css?family=Nunito|Oleo+Script+Swash+Caps');
 
+  body{
+    background: #d6d5d5;
+  }
+
    .search{
     background: url(/static/photos/cam.jpeg) no-repeat 0px 0px;
-    background-attachment: fixed;
     background-repeat: no-repeat;
+    background-attachment:fixed;
     background-size:cover;
     background-position: center;
-    -webkit-background-size: cover;
-    -o-background-size: cover;
-    -ms-background-size: cover;
-    -moz-background-size: cover;
     height: 400px;
 
     }
@@ -87,5 +132,79 @@ div.container.imageloc{
     margin: 5em auto 1em;
     width: 50%;
 }
+/* .paris{
+  background: url(/static/photos/paris.jpeg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  border-radius: 20px;
+  height: 400px;
+}
+.paris:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    opacity: 0.7;
+    overflow: hidden;
+    transition: .5s ease;
+    transform: translateY(-7px);
+    opacity: 0.5;
+  }
+.newyork{
+  background: url(/static/photos/newyork.jpeg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  border-radius: 20px;
+  height: 400px;
+}
+.newyork:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    opacity: 0.7;
+    overflow: hidden;
+    transition: .5s ease;
+    transform: translateY(-7px);
+  }
+.mombasa{
+  background: url(/static/photos/mombasa.jpeg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  border-radius: 20px;
+  height: 400px;
+}
+.mombasa:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    opacity: 0.7;
+    overflow: hidden;
+    transition: .5s ease;
+    transform: translateY(-7px);
+  }
+.nairobi{
+  background: url(/static/photos/nai.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  border-radius: 20px;
+  height: 400px;
+}
+.nairobi:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    opacity: 0.7;
+    overflow: hidden;
+    transition: .5s ease;
+    transform: translateY(-7px);
+  } */
+
 </style>
 {% endblock %}
