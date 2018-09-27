@@ -1,149 +1,121 @@
 {% extends 'base.html'%}
+
 {% block content%}
+
 <br>
 <br>
 <div class="search">
-    <div class="contents">
-        <div class="container image">
-            <h2 id="title"><b>Welcome To Gallery</b></h2>
-            <form class="form" role="search" action="{% url 'search_results' %}">
-
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder=" Search Image by category" name="image_category">&nbsp;&nbsp;   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button">Search</button>
-                  <br>
-                 </div>
-
-              </form>
+  <div class="contents">
+    <div class="container image">
+      <h2 id="title"><b>Welcome To Gallery</b></h2>
+      <form class="form" role="search" action="{% url 'search_results' %}">
+        
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder=" Search Image by category" name="image_category">&nbsp;&nbsp;   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button">Search</button>
+          <br>
         </div>
+        
+      </form>
     </div>
+  </div>
 </div>
 <body>
-    <div class="container">
-        <br>
-          <div class="row">
-              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 box">
-                  <div class="card paris" style="width: 30rem;">
-                    
-                    </div>
-              </div>
-              
-              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                  <div class="card newyork" style="width: 30rem;">
-              
-                    </div>
-              </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <div class="card mombasa" style="width: 30rem;">
-                      </div>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                    <div class="card nairobi" style="width: 30rem;">
-        
-                      </div>
-                </div>
-              </div>
-              <br>
-               <div class="row">
-              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                  <div class="card" style="width: 30rem;">
-            
-                    </div>
-              </div>
-              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                  <div class="card" style="width: 30rem;">
-          
-                    </div>
-              </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      {% for photo in photos %}
+      <div class="col-sm-4 images">
+        <div class="thumbnail">
+            <img src="{{photo.image.url}}" class = "img-responsive" alt="" style="height:400px;width: 350px;">
+        </div>
       </div>
+    </div>
+    {% endfor %}
+  </div>
 </body>
 
 <style>
   @import url('https://fonts.googleapis.com/css?family=Nunito|Oleo+Script+Swash+Caps');
-
+  
   body{
     background: #d6d5d5;
   }
-
-   .search{
+  
+  .search{
     background: url(/static/photos/cam.jpeg) no-repeat 0px 0px;
     background-repeat: no-repeat;
     background-attachment:fixed;
     background-size:cover;
     background-position: center;
     height: 400px;
-
-    }
-    .searchh{
-      color: whitesmoke;
-    }
-
-    ::placeholder{
-      font-family: 'Nunito', sans-serif;
-      font-size: 21px;
-    }
-    #button{
-      font-family: 'Nunito', sans-serif;
-    }
-
-    #title{
-      font-family: 'Nunito', sans-serif;
-      font-size: 60px;
-    }
- /*--Banner--*/
-div.container.image{
+    
+  }
+  .searchh{
+    color: whitesmoke;
+  }
+  
+  ::placeholder{
+    font-family: 'Nunito', sans-serif;
+    font-size: 21px;
+  }
+  #button{
+    font-family: 'Nunito', sans-serif;
+  }
+  
+  #title{
+    font-family: 'Nunito', sans-serif;
+    font-size: 60px;
+  }
+  /*--Banner--*/
+  div.container.image{
     padding: 6em 0 0;
-}
-div.container.imageloc{
+  }
+  div.container.imageloc{
     padding: 4em 0 0;
-}
-.search h2{
+  }
+  .search h2{
     padding-bottom: 20px;
-}
-.search-1 h2{
+  }
+  .search-1 h2{
     color: #c3c3c3;
     text-align: center;
     padding-top: 40px;
-}
-.contents{
+  }
+  .contents{
     min-height: 450px;
     width: inherit;
-}
-.contents-1{
+  }
+  .contents-1{
     min-height: inherit;
     width: inherit;
     background: rgba(0,0,0,0.8)
-}
-.search h2 {
+  }
+  .search h2 {
     font-size:2.5em;
     font-weight: 600;
     color: #fff;
-}
-.search {
+  }
+  .search {
     text-align: center;
-}
-.search p {
+  }
+  .search p {
     font-size: 1.2em;
     color: rgba(255, 255, 255, 0.46);
     font-weight: 400;
     margin: 5em auto 1em;
     width: 50%;
-}
-/* .paris{
-  background: url(/static/photos/paris.jpeg);
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-position: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  border-radius: 20px;
-  height: 400px;
-}
-.paris:hover {
+  }
+  /* .paris{
+    background: url(/static/photos/paris.jpeg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    border-radius: 20px;
+    height: 400px;
+  }
+  .paris:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     opacity: 0.7;
     overflow: hidden;
@@ -151,60 +123,60 @@ div.container.imageloc{
     transform: translateY(-7px);
     opacity: 0.5;
   }
-.newyork{
-  background: url(/static/photos/newyork.jpeg);
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-position: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  border-radius: 20px;
-  height: 400px;
-}
-.newyork:hover {
+  .newyork{
+    background: url(/static/photos/newyork.jpeg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    border-radius: 20px;
+    height: 400px;
+  }
+  .newyork:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     opacity: 0.7;
     overflow: hidden;
     transition: .5s ease;
     transform: translateY(-7px);
   }
-.mombasa{
-  background: url(/static/photos/mombasa.jpeg);
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-position: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  border-radius: 20px;
-  height: 400px;
-}
-.mombasa:hover {
+  .mombasa{
+    background: url(/static/photos/mombasa.jpeg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    border-radius: 20px;
+    height: 400px;
+  }
+  .mombasa:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     opacity: 0.7;
     overflow: hidden;
     transition: .5s ease;
     transform: translateY(-7px);
   }
-.nairobi{
-  background: url(/static/photos/nai.jpg);
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-position: center;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s ease 0s;
-  cursor: pointer;
-  border-radius: 20px;
-  height: 400px;
-}
-.nairobi:hover {
+  .nairobi{
+    background: url(/static/photos/nai.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    border-radius: 20px;
+    height: 400px;
+  }
+  .nairobi:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     opacity: 0.7;
     overflow: hidden;
     transition: .5s ease;
     transform: translateY(-7px);
   } */
-
+  
 </style>
 {% endblock %}
