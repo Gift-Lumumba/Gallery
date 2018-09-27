@@ -45,9 +45,14 @@ class Image(models.Model):
         self.delete()
 
     @classmethod
-    def get_image_by_id(cls, id):
-        images = cls.objects.get(id=id)
+    def get_all_images(cls):
+        images = cls.objects.order_by()
         return images
+
+    @classmethod
+    def get_image(cls, id):
+        image = cls.objects.get(id=id)
+        return image
 
     @classmethod
     def filter_by_category(cls, category):
