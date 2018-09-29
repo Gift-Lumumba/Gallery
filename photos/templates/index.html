@@ -50,10 +50,10 @@
                   </form>
                   <br>
                   <br>
-      
+                  
                   <p style="font-size:22px;padding-right: 70px;">{{photo.description}}</p>
-             
-
+                  
+                  
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-success" data-dismiss="modal">Close</button>
@@ -66,16 +66,18 @@
       </div>
       <script>
         function copyLink(value) {
-            console.log('copied link')
-            function handler(event){
-                event.clipboardData.setData('text/plain', value);
-                event.preventDefault();
-                document.removeEventListener('copy', handler, true);
-            }
-            document.addEventListener('copy', handler, true);
-            document.execCommand('copy');
+          console.log('copied link')
+          function handler(event){
+            event.clipboardData.setData('text/plain', value);
+            event.preventDefault();
+            document.removeEventListener('copy', handler, true);
+          }
+          document.addEventListener('copy', handler, true);
+          document.execCommand('copy');
+          
+          alert("Image link has been successfully copied: " + copyText.value);
         }
-
+        
       </script>
       {% endfor %}
     </div>
@@ -160,20 +162,20 @@
     margin: 5em auto 1em;
     width: 50%;
   }
-    .imagee{
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-        transition: all 0.3s ease 0s;
-        cursor: pointer;
-        border-radius: 5px;
-      }
-    .imagee:hover{
-      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-      opacity: 0.7;
-      overflow: hidden;
-      transition: .5s ease;
-      transform: translateY(-7px);
-    }
-
+  .imagee{
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .imagee:hover{
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    opacity: 0.7;
+    overflow: hidden;
+    transition: .5s ease;
+    transform: translateY(-7px);
+  }
+  
   /* .paris{
     background: url(/static/photos/paris.jpeg);
     background-repeat: no-repeat;
