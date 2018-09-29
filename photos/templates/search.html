@@ -1,25 +1,80 @@
 {% extends 'base.html'%} 
 {% block content %}
 <div class="container">
+  <br>
+  <br>
+  <br>
+  <br>
 
-  <div class="row">
-    {% if categories%}
-      <h2>Found {{ categories|length }} of searched term {{message}}</h2>
+  <div class="row results">
+    {% if images %}
+      <h2><b>Found {{ images|length }} results of searched category {{message}}</b></h2>
     {% else %}
-      <h2> Found 0 categories for the search term {{message}}</h2>
+      <h2> <b>Found 0 images for the search category {{message}}</b></h2>
     {% endif %}
 
   </div>
+  <br>
 
+     
   <div class="row">
 
-  {% if categories %}
-    {% for category in categories %}
-      <div class="col-sm-6 col-md-3">
-          <h1>{{category.name}}</h1>
+      {% if images %}
+        {% for image in images %}
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <img src="{{image.image.url}}" data-toggle="modal" data-target="#exampleModalCenter{{image.id}}" class="img-responsive imagee" style="height: 400px;width: 350px;" alt="">
+              <!-- Modal -->
+          <div class="modal fade modal" id="exampleModalCenter{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content" style="font-family: 'Nunito', sans-serif;">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenterTitle" style="font-size:30px;"><b>{{image.name}}</b></h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <img src="{{image.image.url}}"  class = "img-responsive" alt="" style="height:400px;width: 465px;">
+                </div>
+                <div class="modal-body">
+                  <form action="">
+                    <input type="url" name="" id="" style="width:100%;height:40px;">
+                  </form>
+                  <br>
+                  <p style="font-size:22px;padding-right: 70px;">{{image.description}}</p>
+                </div>
+                
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-success" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+            <br>
+            <br>
+          </div>
+        {% endfor %}
+      {% endif %}
       </div>
-    {% endfor %}
-  {% endif %}
-  </div>
 </div>
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Nunito|Oleo+Script+Swash+Caps');
+  
+  .results{
+    font-family: 'Nunito', sans-serif;
+  }
+  .imagee{
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      transition: all 0.3s ease 0s;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .imagee:hover{
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+      opacity: 0.7;
+      overflow: hidden;
+      transition: .5s ease;
+      transform: translateY(-7px);
+    }
+</style>
 {% endblock %}
