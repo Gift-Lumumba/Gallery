@@ -11,10 +11,10 @@
       <form class="form" role="search" action="{% url 'search_image' %}">
         
         <div class="input-group">
-          <input type="text" class="form-control input" placeholder=" Search Image by category" name="image">&nbsp;&nbsp;   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button">Search</button>
+          <input type="text" class="form-control input" placeholder=" Search Image by category" name="image">&nbsp;&nbsp;   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button"><i class="fas fa-search"></i></button>
           <br>
         </div>
-        <p class="searches" style="color:whitesmoke;font-family: 'Nunito', sans-serif;font-size: 35px;">Trending searches:Music,Cities,Sports etc</p>
+        <p class="searches" style="color:whitesmoke;font-family: 'Nunito', sans-serif;font-size: 25px;">Trending searches:Music,Sports etc</p>
       </form>
     </div>
   </div>
@@ -32,7 +32,7 @@
           <!-- Modal -->
           <div class="modal fade modal" id="exampleModalCenter{{photo.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content" style="font-family: 'Nunito', sans-serif;">
+              <div class="modal-content" style="font-family: 'Nunito', sans-serif;background: rgb(29, 29, 29);color:whitesmoke;">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalCenterTitle" style="font-size:30px;"><b>{{photo.name}}</b></h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -50,8 +50,8 @@
                   </form>
                   <br>
                   <br>
-                  
-                  <p style="font-size:22px;padding-right: 70px;">{{photo.description}}</p>
+                  <p style="font-size:22px;padding-right: 70px;"><b>Category:</b> {{photo.category}}</p>
+                  <p style="font-size:22px;padding-right: 70px;"><b>Description:</b> {{photo.description}}</p>
                   
                   
                 </div>
@@ -106,7 +106,23 @@
   .input{
     height: 40px;
   }
-  
+  .searches{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 5s infinite;
+  }
+  /* Safari 4.0 - 8.0 */
+@-webkit-keyframes mymove {
+    from {left: 200px;}
+    to {left: 0px;}
+}
+
+@keyframes mymove {
+    from {left: 200px;}
+    to {left: 0px;}
+}
   ::placeholder{
     font-family: 'Nunito', sans-serif;
     font-size: 21px;
