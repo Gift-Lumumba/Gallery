@@ -22,11 +22,11 @@
       {% if images %}
         {% for image in images %}
           <div class="col-xs-12 col-sm-6 col-md-4">
-            <img src="{{image.image.url}}" data-toggle="modal" data-target="#exampleModalCenter{{image.id}}" class="img-responsive imagee" style="height: 400px;width: 350px;" alt="">
+            <img src="{{image.image.url}}" data-toggle="modal" data-target="#exampleModalCenter{{image.id}}" class="img-responsive imagee" style="height: 400px;width: 100%" alt="">
               <!-- Modal -->
           <div class="modal fade modal" id="exampleModalCenter{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content" style="font-family: 'Nunito', sans-serif;background: rgb(29, 29, 29);color:whitesmoke;">>
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+              <div class="modal-content" style="font-family: 'Lora', serif;background: rgb(29, 29, 29);color:whitesmoke;">>
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalCenterTitle" style="font-size:30px;"><b>{{image.name}}</b></h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -34,7 +34,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                  <img src="{{image.image.url}}"  class = "img-responsive" alt="" style="height:400px;width: 465px;">
+                  <img src="{{image.image.url}}"  class = "img-responsive" alt="" style="height:500px;width: 100%;">
                 </div>
                 <div class="modal-body">
                     <form action="">
@@ -78,8 +78,9 @@
   @import url('https://fonts.googleapis.com/css?family=Nunito|Oleo+Script+Swash+Caps');
   
   .results{
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Lora', serif;
     color: whitesmoke;
+    font-size: 20px;
   }
   .imagee{
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
