@@ -7,14 +7,14 @@
 <div class="search">
   <div class="contents">
     <div class="container image">
-      <h2 id="title"><b>Welcome To Gallery</b></h2>
+      <!-- <h2 id="title"><b>Welcome To ImageSplash</b></h2> -->
       <form class="form" role="search" action="{% url 'search_image' %}">
         
         <div class="input-group">
           <input type="text" class="form-control input" placeholder=" Search Image by category" name="image">&nbsp;&nbsp;   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button">Search</button>
           <br>
         </div>
-        
+        <p class="searches" style="color:whitesmoke;font-family: 'Nunito', sans-serif;">Trending searches:Music,Cities,Sports etc</p>
       </form>
     </div>
   </div>
@@ -75,7 +75,7 @@
           document.addEventListener('copy', handler, true);
           document.execCommand('copy');
           
-          alert("Image link has been successfully copied: " + copyText.value);
+          alert("Image link has been successfully copied")
         }
         
       </script>
@@ -175,80 +175,6 @@
     transition: .5s ease;
     transform: translateY(-7px);
   }
-  
-  /* .paris{
-    background: url(/static/photos/paris.jpeg);
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-position: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    border-radius: 20px;
-    height: 400px;
-  }
-  .paris:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    opacity: 0.7;
-    overflow: hidden;
-    transition: .5s ease;
-    transform: translateY(-7px);
-    opacity: 0.5;
-  }
-  .newyork{
-    background: url(/static/photos/newyork.jpeg);
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-position: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    border-radius: 20px;
-    height: 400px;
-  }
-  .newyork:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    opacity: 0.7;
-    overflow: hidden;
-    transition: .5s ease;
-    transform: translateY(-7px);
-  }
-  .mombasa{
-    background: url(/static/photos/mombasa.jpeg);
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-position: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    border-radius: 20px;
-    height: 400px;
-  }
-  .mombasa:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    opacity: 0.7;
-    overflow: hidden;
-    transition: .5s ease;
-    transform: translateY(-7px);
-  }
-  .nairobi{
-    background: url(/static/photos/nai.jpg);
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-position: center;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    border-radius: 20px;
-    height: 400px;
-  }
-  .nairobi:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    opacity: 0.7;
-    overflow: hidden;
-    transition: .5s ease;
-    transform: translateY(-7px);
-  } */
   
 </style>
 {% endblock %}
