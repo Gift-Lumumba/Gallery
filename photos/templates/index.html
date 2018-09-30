@@ -11,59 +11,60 @@
       <form class="form" role="search" action="{% url 'search_image' %}">
         
         <div class="input-group">
-          <input type="text" class="form-control input" placeholder=" Search Image by category" name="image">&nbsp;&nbsp;   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button"><i class="fas fa-search"></i></button>
+          <input type="text" class="form-control input" placeholder=" Search image by category" name="image">&nbsp;&nbsp;   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="button"><i class="fas fa-search"></i></button>
           <br>
         </div>
-    
-        <p class="searches" style="color:whitesmoke;font-family: 'Lora', serif;font-size: 20px;text-align: center !important;">Trending searches:Music,Sports etc</p>
-       
+        
+        <p class="searches" style=" color:#ece3d1;;font-family: 'Lora', serif;font-size: 23px;text-align: center !important;padding-right: 170px;">Trending searches:Music,Sports etc</p>
+        
       </form>
     </div>
   </div>
 </div>
 <body>
   <br>
-  <div class="container">
+  <div class="container" style="background: rgb(22, 29, 37);">
     <div class="row">
       {% for photo in photos %}
       <div class="col-xs-12 col-sm-6 col-md-4 images">
         <div class="thumbnail" style="width:100% !important;">
-          <img src="{{photo.image.url}}"  data-toggle="modal" data-target="#exampleModalCenter{{photo.id}}" class = "img-responsive imagee" alt="" style="height:400px;width: 100% !important;">
+          <img src="{{photo.image.url}}"  data-toggle="modal" data-target="#exampleModalCenter{{photo.id}}" class = "img-responsive imagee" alt="" style="height:400px;width: 100% !important;position: center;size: cover;">
           
           
           <!-- Modal -->
           <div class="col-xs-12 col-sm-6 col-md-4">
-              <div class="modal fade" style="width:100% !important;" id="exampleModalCenter{{photo.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                    <div class="modal-content" style="font-family: 'Lora', serif;background: rgb(29, 29, 29);color:whitesmoke;">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle" style="font-size:30px;"><b>{{photo.name}}</b></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <img src="{{photo.image.url}}"  class = "img-responsive" alt="" style="height:500px;width: 100%;">
-                      </div>
-                      <div class="modal-body">
-                        <form action="">
-                          <input type="text" value="https://imgsplash.herokuapp.com{{photo.image.url}}" id="" style="width:100%;height:40px;">
-                          <br>
-                          <button type="button" class="btn btn-outline-success" style="float:right;" value="https://imgsplash.herokuapp.com{{photo.image.url}}" onclick="copyLink(this.value)"  >Copy Link</button>
-                        </form>
-                        <br>
-                        <br>
-                        <p style="font-size:22px;padding-right: 70px;"><b>Category:</b> {{photo.category}}</p>
-                        <p style="font-size:22px;padding-right: 70px;"><b>Description:</b> {{photo.description}}</p>
-                        
-                        
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-success" data-dismiss="modal">Close</button>
-                      </div>
-                    </div>
+            <div class="modal fade" style="width:100% !important;" id="exampleModalCenter{{photo.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content" style="font-family: 'Lora', serif;background: rgb(29, 29, 29); color:#d6d3cd;">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle" style="font-size:40px;"><b>{{photo.name}}</b></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <img src="{{photo.image.url}}"  class = "img-responsive" alt="" style="height:500px;width: 100%;">
+                  </div>
+                  <div class="modal-body">
+                    <form action="">
+                      <input type="text" value="https://imgsplash.herokuapp.com{{photo.image.url}}" id="" style="width:100%;height:40px;">
+                      <br>
+                      <button type="button" class="btn btn-outline-success" style="float:right;" value="https://imgsplash.herokuapp.com{{photo.image.url}}" onclick="copyLink(this.value)"  >Copy Link&nbsp;<i class="fas fa-copy"></i></button>
+                    </form>
+                    <br>
+                    <br>
+                    <p style="font-size:22px;padding-right: 70px;"><b>Category:</b> {{photo.category}}</p>
+                    <p style="font-size:22px;padding-right: 70px;"><b><i class="fas fa-map-marker-alt"></i>&nbsp;:&nbsp;</b>{{photo.location}}</p>
+                    <p style="font-size:22px;padding-right: 70px;"><b>Description:</b> {{photo.description}}</p>
+                    
+                    
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-success" data-dismiss="modal">Close &nbsp;<i class="fas fa-times"></i></button>
                   </div>
                 </div>
+              </div>
+            </div>
           </div>
         </div>
         <br>
@@ -86,6 +87,30 @@
       {% endfor %}
     </div>
   </div>
+  <br>
+  <div class="container-fluid footer" style="width:100% !important;">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <br>
+      <br>
+      
+      <center>
+        <h4 style="
+        color:#ece3d1;font-size: 23px;"><b><i class="fas fa-comment-dots" style="font-size:25px;"></i>&nbsp;For any comments,suggestions or inquiries about this application,contact me via :</b></h4>
+        <br>
+        <a href="https://www.facebook.com/giftokizzer" target="__blank"><i class="fab fa-facebook"></i></a>
+        &nbsp;
+        <a href="https://www.instagram.com/__lumumba__/" target="__blank"><i class="fab fa-instagram"></i></a>
+        &nbsp;
+        <a href="https://github.com/Gift-Lumumba" target="__blank"><i class="fab fa-github"></i></a>
+        &nbsp;
+        <a href="https://mail.google.com/mail/u/0/#inbox" target="__blank"><i class="fas fa-envelope"></i></a>
+        &nbsp;
+        <br>
+        <br>
+        <p style="font-size:17px;">Copyright&copy; :&nbsp;ImageSplash<i class="fas fa-trademark" style="font-size:12px;"></i></p>
+      </center>
+    </div>
+  </div>
 </body>
 
 <style>
@@ -105,7 +130,7 @@
     
   }
   .searchh{
-    color: whitesmoke;
+    color:#ece3d1;;
   }
   .input{
     height: 40px;
@@ -118,7 +143,7 @@
   }
   ::placeholder{
     font-family: 'Lora', serif;
-    font-size: 18px;
+    font-size: 19px;
     color: rgb(51, 51, 51) !important;
   }
   #button{
@@ -151,7 +176,7 @@
     min-height: 450px;
     width: inherit;
     padding-top: 70px;
-
+    
   }
   .contents-1{
     min-height: inherit;
@@ -187,6 +212,17 @@
     transition: .5s ease;
     transform: translateY(-7px);
   }
-  
+  .footer{
+    background: rgb(27, 35, 43);
+    height: 100% !important;
+  }
+  center{
+    color:#ece3d1;
+    font-family: 'Lora', serif;
+  }
+  center i{
+    color:#ece3d1;
+    font-size: 30px;
+  }
 </style>
 {% endblock %}
