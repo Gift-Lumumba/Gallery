@@ -66,6 +66,7 @@
       </div>
       <script>
         function copyLink(value) {
+<<<<<<< HEAD
           console.log('copied link')
           function handler(event){
             event.clipboardData.setData('text/plain', value);
@@ -76,6 +77,17 @@
           document.execCommand('copy');
           
           alert("Image link has been successfully copied")
+=======
+            console.log('copied link')
+            function handler(event){
+                event.clipboardData.setData('text/plain', value);
+                event.preventDefault();
+                document.removeEventListener('copy', handler, true);
+            }
+            document.addEventListener('copy', handler, true);
+            document.execCommand('copy');
+            alert("Image link has been successfully copied: " + copyText.value);
+>>>>>>> 8c6bfd23fd5eed3ec931ecb6497b1b3118c52b90
         }
         
       </script>
